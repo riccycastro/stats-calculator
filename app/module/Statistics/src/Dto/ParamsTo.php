@@ -27,6 +27,11 @@ class ParamsTo
      */
     private $endDate;
 
+    public function __construct(string $statName)
+    {
+        $this->statName = $statName;
+    }
+
     /**
      * @return string|null
      */
@@ -49,18 +54,6 @@ class ParamsTo
     public function getEndDate(): ?DateTime
     {
         return $this->endDate;
-    }
-
-    /**
-     * @param string $statName
-     *
-     * @return $this
-     */
-    public function setStatName(string $statName): self
-    {
-        $this->statName = $statName;
-
-        return $this;
     }
 
     /**

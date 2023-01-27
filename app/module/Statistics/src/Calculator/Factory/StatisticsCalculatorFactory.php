@@ -2,7 +2,6 @@
 
 namespace Statistics\Calculator\Factory;
 
-use Statistics\Calculator\AbstractCalculator;
 use Statistics\Calculator\AveragePostLength;
 use Statistics\Calculator\AveragePostsNumberPerUserPerMonth;
 use Statistics\Calculator\CalculatorComposite;
@@ -45,11 +44,8 @@ class StatisticsCalculatorFactory
             }
 
             $className = self::CALCULATOR_CLASS_MAP[$statName];
-            /** @var AbstractCalculator $child */
-            $child = new $className();
-            $child->setParameters($paramsTo);
 
-            $calculator->addChild($child);
+            $calculator->addChild(new $className($paramsTo));
         }
 
         return $calculator;
