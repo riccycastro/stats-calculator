@@ -1,18 +1,19 @@
 <?php
 
-if ($_REQUEST['email']) {
-    $masterEmail = $_REQUEST['email'];
-}
+use App\Database\Database;
+use App\Handler\Exception\ExceptionHandler;
+use Dotenv\Dotenv;
+use Handler\Request\RequestHandler;
 
-$masterEmail = isset($masterEmail) && $masterEmail
-    ? $masterEmail
-    : (array_key_exists('masterEmail', $_REQUEST) && $_REQUEST["masterEmail"]
-        ? $_REQUEST['masterEmail'] : 'unknown');
+require __DIR__ . '/../vendor/autoload.php';
 
-echo 'The master email is ' . $masterEmail . '\n';
+$dotEnv = Dotenv::createImmutable(__DIR__);
+$dotEnv->load();
 
-$conn = mysqli_connect('localhost', 'root', 'sldjfpoweifns', 'my_database');
-$res = mysqli_query($conn, "SELECT * FROM users WHERE email='" . $masterEmail . "'");
-$row = mysqli_fetch_row($res);
+set_exception_handler(function (Throwable $throwable) {
+    ExceptionHandler::handler($throwable);
+});
 
-echo $row['username'] . "\n";
+Database::init();
+
+RequestHandler::handle($_REQUEST);
