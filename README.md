@@ -209,6 +209,8 @@ Run the tests with the following command:
     ./vendor/bin/phpunit -c ./tests/phpunit.xml
 
 
+## Task 2
+
 ```php
     <?php
 $tokenInfo = file_get_contents('https://api.supermetrics.com/assignment/register?
@@ -219,3 +221,11 @@ client_id=ju16a6m81mhid5ue1z3v2g0uh&email=my@name.com&name=My%20Name');
     2. This endpoint documentation states that this should be a post request. Although we can make the file_get_contents do post request and create a wrapper around it to handle all the aspects of a HTTP request, what do you think about using a proper library to handle this request? I would suggest guzzle https://docs.guzzlephp.org/en/stable/
     3. We should create a client class to consume the supermetrics api, where we can encapsulate all the logic inside it so that one can reuse this logic somewhere else. What do you think?
     4. If you need to discuss or having problem to understand any of the previous topic, please feel free to contact me.
+
+## Task 4
+
+##### Would you use a class/library provided by an external framework in your code, why or why not? #####
+
+Well, that depends on the project specification. In my opinion, we should not recreate the wheel, so, I use external libraries. Inclusive of the ones provided by external frameworks.
+
+But, while working on a previous project, that aims at the African market, we would take caution about the libraries that we would use in the front end. Because the internet speed is an issue, the size of the final build should be as small as possible. Often we would develop some of our needs if the external libraries would have an unnecessary bunch of codes and if it was something easy to develop.
