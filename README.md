@@ -207,3 +207,15 @@ change the working directory inside the container by running `cd /srv/sm_assignm
 Run the tests with the following command:
 
     ./vendor/bin/phpunit -c ./tests/phpunit.xml
+
+
+```php
+    <?php
+$tokenInfo = file_get_contents('https://api.supermetrics.com/assignment/register?
+client_id=ju16a6m81mhid5ue1z3v2g0uh&email=my@name.com&name=My%20Name');
+```
+
+    1. In this line we are using hardcoded credentials, what do you think about moving these info to env vars and then access them?
+    2. This endpoint documentation states that this should be a post request. Although we can make the file_get_contents do post request and create a wrapper around it to handle all the aspects of a HTTP request, what do you think about using a proper library to handle this request? I would suggest guzzle https://docs.guzzlephp.org/en/stable/
+    3. We should create a client class to consume the supermetrics api, where we can encapsulate all the logic inside it so that one can reuse this logic somewhere else. What do you think?
+    4. If you need to discuss or having problem to understand any of the previous topic, please feel free to contact me.
