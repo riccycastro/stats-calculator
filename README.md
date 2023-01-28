@@ -229,3 +229,10 @@ client_id=ju16a6m81mhid5ue1z3v2g0uh&email=my@name.com&name=My%20Name');
 Well, that depends on the project specification. In my opinion, we should not recreate the wheel, so, I use external libraries. Inclusive of the ones provided by external frameworks.
 
 But, while working on a previous project, that aims at the African market, we would take caution about the libraries that we would use in the front end. Because the internet speed is an issue, the size of the final build should be as small as possible. Often we would develop some of our needs if the external libraries would have an unnecessary bunch of codes and if it was something easy to develop.
+
+In any case if I'm going to use an external library I have some validation layer that this library must pass:
+1. Number of supporters
+2. Number of stars
+3. Number of open issue and how fast the supporters are to close them
+3. Last commit date
+4. Number of dependencies
