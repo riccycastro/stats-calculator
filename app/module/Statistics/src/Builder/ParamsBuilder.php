@@ -26,20 +26,16 @@ class ParamsBuilder
         $endDate   = (clone $end)->modify('last day of this month')->setTime(23, 59, 59);
 
         return [
-            (new ParamsTo())
-                ->setStatName(StatsEnum::AVERAGE_POST_LENGTH)
+            (new ParamsTo(StatsEnum::AVERAGE_POST_LENGTH))
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
-            (new ParamsTo())
-                ->setStatName(StatsEnum::MAX_POST_LENGTH)
+            (new ParamsTo(StatsEnum::MAX_POST_LENGTH))
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
-            (new ParamsTo())
-                ->setStatName(StatsEnum::TOTAL_POSTS_PER_WEEK)
+            (new ParamsTo(StatsEnum::TOTAL_POSTS_PER_WEEK))
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
-            (new ParamsTo())
-                ->setStatName(StatsEnum::AVERAGE_POSTS_NUMBER_PER_USER_PER_MONTH)
+            (new ParamsTo(StatsEnum::AVERAGE_POSTS_NUMBER_PER_USER_PER_MONTH))
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
         ];

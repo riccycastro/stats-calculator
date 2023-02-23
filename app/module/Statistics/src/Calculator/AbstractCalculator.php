@@ -21,16 +21,9 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     protected $parameters;
 
-    /**
-     * @param ParamsTo $params
-     *
-     * @return CalculatorInterface
-     */
-    public function setParameters(ParamsTo $params): CalculatorInterface
+    public function __construct(ParamsTo $params)
     {
         $this->parameters = $params;
-
-        return $this;
     }
 
     /**
